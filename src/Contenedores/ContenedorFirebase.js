@@ -1,73 +1,70 @@
 
-const create = async (collections, data) => {
+
+const obtenerTodos = async (collection) => {
     try {
-        const document = collections.doc()
-        // nos brinda un documento temporal con un id autogenerado
-        await document.create(data)
-        // ese documento le agrega datos y lo guarda
-        console.log("creado !")
+        const documento = await collection.get()
+        return documento.docs.map(doc => { return { ...doc.data(), id: doc.id } })
     }
-    catch (e) {
-        console.error('Error al buscar los docuementos: ', e);
+    catch (error) {
+        console.error('Error al buscar todos los documentos: ', error);
     }
-
 }
 
-const findOne = async (collections, id) => {
+const obtenerXid = async (collection, id) => {
     try {
-        const document = await collections.doc(id).get()
-        // document me va a responder const con funcionalida
-        // y la funcion data es un getter a los datos que 
-        // tiene almacenado
-        return document.data()
+        const documento = await collection.doc(id).get()
+
+        return documento.data()
     }
-    catch (e) {
-        console.error('Error al buscar un docuemento: ', e);
+    catch (error) {
+        console.error('Error al buscar un documento: ', error);
     }
 
 }
-const findAll = async (collections) => {
+
+const guardar = async (collection, datos) => {
     try {
-        const document = await collections.get()
-        return document.docs.map(doc => { return { ...doc.data(), id: doc.id } })
-    }
-    catch (e) {
-        console.error('Error al crear un docuemento: ', e);
-    }
+        const documento = collection.doc()
 
+        await documento.create(datos)
+
+        console.log("creado correctamente !")
+    }
+    catch (error) {
+        console.error('Error al crear un documento: ', error);
+    }
 }
 
-const update = async (collections, id, data) => {
+const actualizar = async (collection, id, datos) => {
     try {
-        const document = collections.doc(id)
-        await document.update(data)
-        console.log("updateado !")
+        const documento = collection.doc(id)
+        await documento.actualizar(datos)
+        console.log("actualizado correctamente !")
 
     }
-    catch (e) {
-        console.error('Error al updatear un docuemento: ', e);
+    catch (error) {
+        console.error('Error al actualizar un documento: ', error);
     }
-
 }
 
-
-const remove = async (collections, id) => {
+const eliminarXid = async (collection, id) => {
     try {
-        const document = collections.doc(id)
-        await document.delete()
-        console.log("eliminado !")
+        const documento = collection.doc(id)
+        await documento.eliminarXid()
+        console.log("eliminado correctamente !")
 
     }
-    catch (e) {
-        console.error('Error al eliminar un docuemento: ', e);
+    catch (error) {
+        console.error('Error al eliminar un documento: ', error);
     }
 
 }
 
-module.exports = {
-    create,
-    findOne,
-    findAll,
-    update,
-    remove
-}
+
+export {
+    guardar,
+    obtenerXid,
+    obtenerTodos,
+    actualizar,
+    eliminarXid
+};
