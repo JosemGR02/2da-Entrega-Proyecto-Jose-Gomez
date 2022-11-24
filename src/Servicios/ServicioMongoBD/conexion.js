@@ -12,7 +12,7 @@ const init = async () => {
         });
         console.log("La conexión con MongoBD establecida con exito");
 
-        await usuarios.insertMany({ nombre: 'Federico', apellido: 'Perez', dni: '320118321' });
+        await usuarios.insertMany({ nombre: 'Lucas', apellido: 'Blanco', dni: '30355874' }, { nombre: 'Maria', apellido: 'Garcia', dni: '29575148' }, { nombre: 'Tomás', apellido: 'Sierra', dni: '38654790' }, { nombre: 'Carlos', apellido: 'Fernández', dni: '26935670' }, { nombre: 'Carlos', apellido: 'Fernández', dni: '26935670' });
 
         console.log(await usuarios.find())
     } catch (error) {
@@ -37,10 +37,7 @@ export const servicioMongoDB = {
 // URL
 // mongodb+srv://${user}:${pass}@cluster0.ycmrr2m.mongodb.net/?retryWrites=true&w=majority&dbName=${databaseName}
 
-////////////////////////////////////////////////////////////////////////
 
-
-
-// { nombre: 'Lucas', apellido: 'Blanco', dni: '30355874' },{ nombre: 'Maria', apellido: 'Garcia', dni: '29575148' },{ nombre: 'Tomás', apellido: 'Sierra', dni: '38654790' },{ nombre: 'Carlos', apellido: 'Fernández', dni: '26935670' },{ nombre: 'Carlos', apellido: 'Fernández', dni: '26935670' },}
+// AGREGAR 1 +
 
 // { nombre: 'Federico', apellido: 'Pérez', dni: '320118321' }

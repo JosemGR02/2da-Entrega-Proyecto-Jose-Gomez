@@ -1,18 +1,15 @@
 
 import { admin } from "firebase-admin";
-import { serviceAccount } from "../../Configuracion/configFirebase.json";
-
-// const admin = require("firebase-admin");
-// const serviceAccount = require("./CONFIG_DB");
+import serviceAccount from "../../Configuracion/configFirebase.json" assert { type: "json" };
 
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount)
 });
 const conectar = async () => {
     try {
-        const BaseDatos = admin.firestore();
+        const baseDatos = admin.firestore();
         console.log('FIREBASE CONECTADO CORRECTAMENTE')
-        return BaseDatos
+        return baseDatos
     }
     catch (error) {
         console.log('ERROR AL CONECTARSE A FIREBASE ', error)

@@ -1,6 +1,6 @@
 
 
-const obtenerTodos = async (collection) => {
+const findAll = async (collection) => {
     try {
         const documento = await collection.get()
         return documento.docs.map(doc => { return { ...doc.data(), id: doc.id } })
@@ -10,7 +10,7 @@ const obtenerTodos = async (collection) => {
     }
 }
 
-const obtenerXid = async (collection, id) => {
+const findOne = async (collection, id) => {
     try {
         const documento = await collection.doc(id).get()
 
@@ -22,7 +22,7 @@ const obtenerXid = async (collection, id) => {
 
 }
 
-const guardar = async (collection, datos) => {
+const create = async (collection, datos) => {
     try {
         const documento = collection.doc()
 
@@ -35,10 +35,10 @@ const guardar = async (collection, datos) => {
     }
 }
 
-const actualizar = async (collection, id, datos) => {
+const update = async (collection, id, datos) => {
     try {
         const documento = collection.doc(id)
-        await documento.actualizar(datos)
+        await documento.update(datos)
         console.log("actualizado correctamente !")
 
     }
@@ -47,10 +47,10 @@ const actualizar = async (collection, id, datos) => {
     }
 }
 
-const eliminarXid = async (collection, id) => {
+const remove = async (collection, id) => {
     try {
         const documento = collection.doc(id)
-        await documento.eliminarXid()
+        await documento.remove()
         console.log("eliminado correctamente !")
 
     }
@@ -62,9 +62,9 @@ const eliminarXid = async (collection, id) => {
 
 
 export {
-    guardar,
-    obtenerXid,
-    obtenerTodos,
-    actualizar,
-    eliminarXid
+    create,
+    findOne,
+    findAll,
+    update,
+    remove
 };

@@ -4,10 +4,10 @@ import { contenedorFirebase } from "../../Contenedores/ContenedorFirebase.js";
 
 
 conectar().then(baseDatos => {
-    const collections = baseDatos.collection('colores')
+    const collections = baseDatos.collection('usuarios')
 
-    // const colores = [ 'yellow','red','blue']
-    // colores.forEach( async (color) =>   await contenedorFirebase.create(collections,{color}) )
+    // const ecommerce = [ 'yellow','red','blue']
+    // ecommerce.forEach( async (color) =>   await contenedorFirebase.create(collections,{color}) )
 
     //----------------------------------------------------------------------------
 
@@ -23,6 +23,7 @@ conectar().then(baseDatos => {
 
     contenedorFirebase.findAll(collections).then(datos => {
         console.log(datos)
+
         return contenedorFirebase.update(collections, 'ixCEtJwtJgzKfuq1j2rx', { color: "navy" })
     }).then(() =>
         contenedorFirebase.findAll(collections)
