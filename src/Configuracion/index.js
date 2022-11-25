@@ -21,22 +21,24 @@ const config = {
             user: process.env.BASEDATOS_MONGO_USUARIO,
             pass: process.env.BASEDATOS_MONGO_PASS,
         },
-        mysql: {
-            client: "mysql",
-            connection: {
-                host: process.env.BASEDATOS_HOST ?? "127.0.0.1",
-                port: process.env.BASEDATOS_PORT ?? 3306,
-                user: process.env.BASEDATOS_USER ?? "root",
-                database: process.env.BASEDATOS_NAME ?? "segundaEntregaBD",
+        knex: {
+            mysql: {
+                client: "mysql",
+                connection: {
+                    host: process.env.BASEDATOS_MYSQL_HOST,
+                    port: process.env.BASEDATOS_MYSQL_PORT,
+                    user: process.env.BASEDATOS_MYSQL_USUARIO,
+                    database: process.env.BASEDATOS_MYSQL_NOMBRE,
+                },
+                useNullAsDefault: true
             },
-            useNullAsDefault: true
-        },
-        sqlite: {
-            client: "sqlite3",
-            connection: {
-                filename: "./src/BaseDatos/sqlite/ecommerce.sqlite",
-            },
-            useNullAsDefault: true
+            sqlite: {
+                client: "sqlite3",
+                connection: {
+                    filename: "./src/BaseDatos/sqlite/ecommerce.sqlite",
+                },
+                useNullAsDefault: true
+            }
         }
     }
 };
