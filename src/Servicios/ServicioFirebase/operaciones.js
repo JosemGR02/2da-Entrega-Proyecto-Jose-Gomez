@@ -1,27 +1,27 @@
 
 import { conectar } from "./conexion.js";
-import { contenedorFirebase } from "../../Contenedores/ContenedorFirebase.js";
+import { contenedorFirebase } from "../../Contenedores/index.js";
 
 
 conectar().then(baseDatos => {
     const collections = baseDatos.collection('usuarios')
 
-    // contenedorFirebase.guardar(collections,{ nombre: 'Fulanito', apellido: 'de tal', dni: '673782674' })
-    // .then( ()=> contenedorFirebase.guardar(collections,{ nombre: 'Carlos', apellido: 'Fernández', dni: '26935670' }) )
-    // .then( ()=> contenedorFirebase.guardar(collections,{ nombre: 'Pepe', apellido: 'flind', dni: '523635265' }) )
-    // .then( ()=> contenedorFirebase.guardar(collections,{ nombre: 'Roman', apellido: 'perez', dni: '325425454' }) )
-    // .then( ()=> contenedorFirebase.obtenerTodos(collections) )
+    // contenedorFirebase.create(collections,{ nombre: 'Fulanito', apellido: 'de tal', dni: '673782674' })
+    // .then( ()=> contenedorFirebase.create(collections,{ nombre: 'Carlos', apellido: 'Fernández', dni: '26935670' }) )
+    // .then( ()=> contenedorFirebase.create(collections,{ nombre: 'Pepe', apellido: 'flind', dni: '523635265' }) )
+    // .then( ()=> contenedorFirebase.create(collections,{ nombre: 'Roman', apellido: 'perez', dni: '325425454' }) )
+    // .then( ()=> contenedorFirebase.findAll(collections) )
     // .then( datos =>{
     //     console.log(datos)
-    //     // return contenedorFirebase.actualizar(collections,)
+    //     // return contenedorFirebase.update(collections,)
     // })
 
-    contenedorFirebase.obtenerXid(collections).then(datos => {
+    contenedorFirebase.findAll(collections).then(datos => {
         console.log(datos)
 
-        return contenedorFirebase.actualizar(collections, 'tdgsf2dhsjuq1j2rx', { nombre: "pepito" })
+        return contenedorFirebase.update(collections, 'tdgsf2dhsjuq1j2rx', { nombre: "pepito" })
     }).then(() =>
-        contenedorFirebase.obtenerTodos(collections)
+        contenedorFirebase.findAll(collections)
     )
         .then(datos => console.log(datos))
 })
