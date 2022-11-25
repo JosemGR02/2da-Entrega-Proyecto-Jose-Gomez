@@ -1,13 +1,13 @@
 
-import { ContenedorMongoBD } from "../../Contenedores/index.js";
-import { ModeloCarrito } from "../../Modelos/index.js";
+import { contenedorMongoBD } from "../../Contenedores/index.js";
+import { modeloCarrito } from "../../Modelos/index.js";
 
 
-export class carritoMongoBD extends ContenedorMongoBD {
+export class carritosMongoBD extends contenedorMongoBD {
     constructor() {
         super({
-            nombre: ModeloCarrito.CartCollection,
-            schema: ModeloCarrito.CartSchema,
+            nombre: modeloCarrito.CartCollection,
+            schema: modeloCarrito.CartSchema,
         });
     }
 

@@ -1,8 +1,9 @@
+
 import knex from "knex";
 import { config } from "../../Configuracion/index.js";
 import { CONJUNTOS_DATOS } from "./conjuntosDatos/index.js";
 
-const KnexMySQL = knex(config.knex.mysql);
+const KnexMariaBD = knex(config.knex.mariaBD);
 const KnexSqlite = knex(config.knex.sqlite);
 
 
@@ -55,13 +56,13 @@ const crearTablaMensajes = async (knexSeleccionado) => {
 };
 
 const init = async () => {
-  await crearTablaProductos(KnexMySQL);
+  await crearTablaProductos(KnexMariaBD);
   await crearTablaMensajes(KnexSqlite);
 };
 
 const servicioKnex = {
   init,
-  KnexMySQL,
+  KnexMariaBD,
   KnexSqlite
 };
 

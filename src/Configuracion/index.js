@@ -22,13 +22,13 @@ const config = {
             pass: process.env.BASEDATOS_MONGO_PASS,
         },
         knex: {
-            mysql: {
-                client: "mysql",
+            mariaBD: {
+                client: "mariaBD",
                 connection: {
-                    host: process.env.BASEDATOS_MYSQL_HOST,
-                    port: process.env.BASEDATOS_MYSQL_PORT,
-                    user: process.env.BASEDATOS_MYSQL_USUARIO,
-                    database: process.env.BASEDATOS_MYSQL_NOMBRE,
+                    host: process.env.BASEDATOS_MARIABD_HOST,
+                    port: process.env.BASEDATOS_MARIABD_PORT,
+                    user: process.env.BASEDATOS_MARIABD_USUARIO,
+                    database: process.env.BASEDATOS_MARIABD_NOMBRE,
                 },
                 useNullAsDefault: true
             },

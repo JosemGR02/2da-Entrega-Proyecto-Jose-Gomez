@@ -1,7 +1,8 @@
 
-class contenedorMariaBD {
-    constructor(baseDeDatosMaria, productosBD) {
-        this.knex = baseDeDatosMaria;
+
+class contenedorSqlite {
+    constructor(baseDeDatoSqlite, productosBD) {
+        this.knex = baseDeDatoSqlite;
         this.tablaBD = productosBD;
     }
 
@@ -65,4 +66,4 @@ class contenedorMariaBD {
     }
 }
 
-export { contenedorMariaBD };
+export { contenedorSqlite };

@@ -1,14 +1,14 @@
 
 
-import { ContenedorMongoBD } from "../../Contenedores/index.js";
-import { ModeloProductos } from "../../models/index.js";
+import { contenedorMongoBD } from "../../Contenedores/index.js";
+import { modeloProducto } from "../../Modelos/index.js";
 
 
-export class productsMongo extends ContenedorMongoBD {
+export class productosMongoBD extends contenedorMongoBD {
     constructor() {
         super({
-            name: ModeloProductos.ProductsCollection,
-            schema: ModeloProductos.ProductSchema,
+            name: modeloProducto.ProductsCollection,
+            schema: modeloProducto.ProductSchema,
         });
     }
 }

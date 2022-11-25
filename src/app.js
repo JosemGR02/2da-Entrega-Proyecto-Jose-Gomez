@@ -2,7 +2,7 @@
 // imports
 import express from "express";
 import { config } from "./Configuracion/index.js";
-import { RutaProductos, RutaCarritos } from "./Rutas/index.js";
+import { RutaProducto, RutaCarrito } from "./Rutas/index.js";
 import cors from "cors";
 
 
@@ -17,8 +17,8 @@ app.use(express.static("public"));
 
 
 //Rutas
-app.use("/api/productos", RutaProductos);
-app.use("/api/carritos", RutaCarritos);
+app.use("/api/productos", RutaProducto);
+app.use("/api/carritos", RutaCarrito);
 
 
 //Servidor

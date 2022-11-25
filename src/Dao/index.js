@@ -1,14 +1,14 @@
 
-import { config } from "../config/index.js";
-import { MongoDBService } from "../services/index.js";
-import { carritosMongoBD, carritosFilesystem, carritosMemoria, carritosMariaBD, carritoSqlite3 } from "./Carritos/index.js";
-import { productosMongoBD, productosFileSystem, productosMemoria, productosMariaBD, productoSqlite3 } from "./Productos/index.js";
+import { config } from "../Configuracion/index.js";
+import { servicioMongoDB, servicioKnex } from "../Servicios/index.js";
+import { carritosMongoBD, carritosFilesystem, carritosMemoria, carritosMariaBD, carritoSqlite } from "./Carritos/index.js";
+import { productosMongoBD, productosFileSystem, productosMemoria, productosMariaBD, productoSqlite } from "./Productos/index.js";
 
 
 const obtenerDaoSeleccionados = () => {
     switch (config.SERVER.SELECCION_BASEdDATOS) {
         case "mongo": {
-            MongoDBService.init();
+            servicioMongoDB.init();
             return {
                 DaoProducto: new productosMongoBD(),
                 DaoCarrito: new carritosMongoBD(),
@@ -33,15 +33,17 @@ const obtenerDaoSeleccionados = () => {
             };
         }
         case "mariaDB": {
+            servicioKnex.init();
             return {
-                DaoProducto: new productosMariaBD(),
-                DaoCarrito: new carritosMariaBD(),
+                DaoProducto: new productosMariaBD(servicioKnex.KnexMySQL, "productos"),
+                DaoCarrito: new carritosMariaBD(servicioKnex.KnexMySQL, "carritos"),
             };
         }
         case "sqlite3": {
+            servicioKnex.init();
             return {
-                DaoProducto: new productoSqlite3(),
-                DaoCarrito: new carritoSqlite3(),
+                DaoProducto: new productoSqlite(servicioKnex.KnexSqlite, "productos"),
+                DaoCarrito: new carritoSqlite(servicioKnex.KnexSqlite, "carritos"),
             };
         }
     }
@@ -50,3 +52,6 @@ const obtenerDaoSeleccionados = () => {
 const { DaoProducto, DaoCarrito } = obtenerDaoSeleccionados();
 
 export { DaoProducto, DaoCarrito };
+
+
+

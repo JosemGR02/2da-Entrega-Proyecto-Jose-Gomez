@@ -1,12 +1,12 @@
 
-import { ContainerFilesystem } from "../Containers/index.js";
-import { DATE_UTILS } from "./date-utils.js";
+import { contenedorFileSystem } from "../Contenedores/index.js";
+import { FECHA_UTILS } from "./index.js";
 
 
-const LoggerDao = new ContainerFilesystem("logs");
+const LoggerDao = new contenedorFileSystem("logs");
 
 const addLog = async (error) => {
-    const log = { timestamp: DATE_UTILS.getTimestamp(), message: error };
+    const log = { timestamp: FECHA_UTILS.getTimestamp(), message: error };
     await LoggerDao.save(log);
 };
 

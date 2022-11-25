@@ -28,3 +28,4 @@ ProductoEsquema.set("toJSON", {
 });
 
 export const modeloProducto = { ColeccionProductos, ProductoEsquema };
+

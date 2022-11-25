@@ -19,4 +19,4 @@ ruta.delete("/:id/productos/:id", controladorCarritos.eliminarProdCarrito);
 ruta.delete("/:id", controladorCarritos.eliminarCarritoXid);
 
 
-export { ruta as RutaCarritos };
+export { ruta as RutaCarrito };

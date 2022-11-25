@@ -1,6 +1,6 @@
 
 import { Router } from "express";
-import { verifyRole } from "../../middlewares/verifyRole.js";
+import { verificarAdmin } from "../../Middlewares/index.js";
 import { controladorProductos } from "../../Controlador/index.js";
 
 
@@ -11,7 +11,7 @@ ruta.get("/", controladorProductos.obtenerTodos);
 
 ruta.get("/:id", controladorProductos.obtenerXid);
 
-ruta.post("/", verifyRole, controladorProductos.crearProducto);
+ruta.post("/", verificarAdmin, controladorProductos.crearProducto);
 
 ruta.delete("/:id", controladorProductos.eliminarXid);
 

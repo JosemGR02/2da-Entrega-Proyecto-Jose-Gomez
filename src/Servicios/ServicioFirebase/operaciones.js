@@ -6,28 +6,27 @@ import { contenedorFirebase } from "../../Contenedores/ContenedorFirebase.js";
 conectar().then(baseDatos => {
     const collections = baseDatos.collection('usuarios')
 
-    // const ecommerce = [ 'yellow','red','blue']
-    // ecommerce.forEach( async (color) =>   await contenedorFirebase.create(collections,{color}) )
-
-    //----------------------------------------------------------------------------
-
-    // contenedorFirebase.create(collections,{color:'red'})
-    // .then( ()=> contenedorFirebase.create(collections,{color:'yellow'}) )
-    // .then( ()=> contenedorFirebase.create(collections,{color:'green'}) )
-    // .then( ()=> contenedorFirebase.create(collections,{color:'blue'}) )
-    // .then( ()=> contenedorFirebase.findAll(collections) )
+    // contenedorFirebase.guardar(collections,{ nombre: 'Fulanito', apellido: 'de tal', dni: '673782674' })
+    // .then( ()=> contenedorFirebase.guardar(collections,{ nombre: 'Carlos', apellido: 'Fernández', dni: '26935670' }) )
+    // .then( ()=> contenedorFirebase.guardar(collections,{ nombre: 'Pepe', apellido: 'flind', dni: '523635265' }) )
+    // .then( ()=> contenedorFirebase.guardar(collections,{ nombre: 'Roman', apellido: 'perez', dni: '325425454' }) )
+    // .then( ()=> contenedorFirebase.obtenerTodos(collections) )
     // .then( datos =>{
     //     console.log(datos)
-    //     // return contenedorFirebase.update(collections,)
+    //     // return contenedorFirebase.actualizar(collections,)
     // })
 
-    contenedorFirebase.findAll(collections).then(datos => {
+    contenedorFirebase.obtenerXid(collections).then(datos => {
         console.log(datos)
 
-        return contenedorFirebase.update(collections, 'ixCEtJwtJgzKfuq1j2rx', { color: "navy" })
+        return contenedorFirebase.actualizar(collections, 'tdgsf2dhsjuq1j2rx', { nombre: "pepito" })
     }).then(() =>
-        contenedorFirebase.findAll(collections)
+        contenedorFirebase.obtenerTodos(collections)
     )
         .then(datos => console.log(datos))
 })
 
+
+
+// const ecommerce = [ 'yellow','red','blue']
+// ecommerce.forEach( async (color) =>   await contenedorFirebase.create(collections,{color}) )

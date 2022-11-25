@@ -1,5 +1,5 @@
 
-export { servicioMongoDB } from "./ServicioMongoDB/index.js";
-export { servicioFirebase } from "./ServicioFirebase/index.js";
+export { servicioMongoDB } from "./ServicioMongoBD/conexion.js";
+export { conectar } from "./ServicioFirebase/conexion.js";
 export { servicioKnex } from "./ServicioKnex/iniciarTablas.js";
 
