@@ -3,8 +3,8 @@ import knex from "knex";
 import { config } from "../../Configuracion/index.js";
 import { CONJUNTOS_DATOS } from "./conjuntosDatos/index.js";
 
-const KnexMariaBD = knex(config.knex.mariaBD);
-const KnexSqlite = knex(config.knex.sqlite);
+const KnexMariaBD = knex(config.DATABASES.knex.mariaBD);
+const KnexSqlite = knex(config.DATABASES.knex.sqlite);
 
 
 const agregarConjuntosDatos = async (conectorKnex, datos, tableName) => {

@@ -8,3 +8,4 @@ export class productoSqlite extends contenedorSqlite {
         super(config.DATABASES.sqlite3);
     }
 }
+

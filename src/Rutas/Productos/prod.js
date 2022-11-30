@@ -18,3 +18,4 @@ ruta.delete("/:id", controladorProductos.eliminarXid);
 export { ruta as RutaProducto };
 
 
+

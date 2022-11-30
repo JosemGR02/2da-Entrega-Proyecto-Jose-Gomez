@@ -9,7 +9,7 @@ const obtenerTodos = async (solicitud, respuesta) => {
         const producto = await DaoProducto.obtenerTodos();
 
         if (!producto) {
-            return respuesta.send({ error: ERRORES_UTILS.MESSAGES.NO_PRODUCT });
+            return respuesta.send({ error: ERRORES_UTILS.MESSAGES.ERROR_PRODUCTO });
         }
         respuesta.send(producto);
     } catch (error) {
@@ -33,7 +33,7 @@ const crearProducto = async (solicitud, respuesta) => {
     try {
         const { titulo, descripcion, codigo, imagen, precio, stock } = solicitud.body;
 
-        const nuevoProducto = await JOI_VALIDADOR.producto.validateAsync({
+        const nuevoProducto = await JOI_VALIDADOR.productoJoi.validateAsync({
             titulo, descripcion, codigo, imagen, precio, stock,
             timestamp: FECHA_UTILS.getTimestamp(),
         });
@@ -46,6 +46,7 @@ const crearProducto = async (solicitud, respuesta) => {
         respuesta.send({ error, error: "Error al crear el producto solicitado" })
     }
 };
+
 
 const eliminarXid = async (solicitud, respuesta) => {
     try {

@@ -3,10 +3,6 @@
 import express from "express";
 import { config } from "./Configuracion/index.js";
 import { RutaProducto, RutaCarrito } from "./Rutas/index.js";
-import cors from "cors";
-
-
-app.use(cors({ origin: "http://localhost:3000" }));
 
 
 const app = express();
@@ -25,3 +21,4 @@ app.use("/api/carritos", RutaCarrito);
 const server = app.listen(config.SERVER.PORT, () =>
     console.log(`Servidor escuchando en puerto: ${server.address().port}`)
 );
+

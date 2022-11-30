@@ -5,6 +5,7 @@ dotenv.config();
 const PRODUCTOS_ARCHIVONOMBRE = "productos";
 const CARRITOS_ARCHIVONOMBRE = "carritos";
 
+
 const config = {
     SERVER: {
         PORT: process.env.PORT || 8080,
@@ -23,7 +24,7 @@ const config = {
         },
         knex: {
             mariaBD: {
-                client: "mariaBD",
+                client: "mysql",
                 connection: {
                     host: process.env.BASEDATOS_MARIABD_HOST,
                     port: process.env.BASEDATOS_MARIABD_PORT,

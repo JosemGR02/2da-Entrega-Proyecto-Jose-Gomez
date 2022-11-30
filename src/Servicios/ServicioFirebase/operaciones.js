@@ -1,32 +1,24 @@
 
 import { conectar } from "./conexion.js";
-import { contenedorFirebase } from "../../Contenedores/index.js";
+import { DaoProducto } from "../../Dao/index.js";
+
 
 
 conectar().then(baseDatos => {
-    const collections = baseDatos.collection('usuarios')
+    const collections = baseDatos.collection('productos')
 
-    // contenedorFirebase.create(collections,{ nombre: 'Fulanito', apellido: 'de tal', dni: '673782674' })
-    // .then( ()=> contenedorFirebase.create(collections,{ nombre: 'Carlos', apellido: 'Fernández', dni: '26935670' }) )
-    // .then( ()=> contenedorFirebase.create(collections,{ nombre: 'Pepe', apellido: 'flind', dni: '523635265' }) )
-    // .then( ()=> contenedorFirebase.create(collections,{ nombre: 'Roman', apellido: 'perez', dni: '325425454' }) )
-    // .then( ()=> contenedorFirebase.findAll(collections) )
-    // .then( datos =>{
-    //     console.log(datos)
-    //     // return contenedorFirebase.update(collections,)
-    // })
+    DaoProducto.create(collections, { "titulo": "escalera", "precio": 1200, "imagen": "https://i.blogs.es/5efe2c/cap_001/450_1000.jpg" })
+        .then(() => DaoProducto.create(collections, { "titulo": "remera", "precio": 235, "imagen": "https://i.blogs.es/5efe2c/cap_001/450_1000.jpg" }))
+        .then(() => DaoProducto.create(collections, { "titulo": "vaso", "precio": 2339, "imagen": "https://i.blogs.es/5efe2c/cap_001/450_1000.jpg" }))
+        .then(() => DaoProducto.create(collections, { "titulo": "auto", "precio": 3225, "imagen": "https://i.blogs.es/5efe2c/cap_001/450_1000.jpg" }))
 
-    contenedorFirebase.findAll(collections).then(datos => {
+    DaoProducto.findAll(collections).then(datos => {
         console.log(datos)
 
-        return contenedorFirebase.update(collections, 'tdgsf2dhsjuq1j2rx', { nombre: "pepito" })
+        return DaoProducto.update(collections, '(id producto)', { "titulo": "ventilador" })
     }).then(() =>
-        contenedorFirebase.findAll(collections)
+        DaoProducto.findAll(collections)
     )
         .then(datos => console.log(datos))
 })
 
-
-
-// const ecommerce = [ 'yellow','red','blue']
-// ecommerce.forEach( async (color) =>   await contenedorFirebase.create(collections,{color}) )

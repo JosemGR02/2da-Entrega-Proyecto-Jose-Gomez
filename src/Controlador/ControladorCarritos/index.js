@@ -38,12 +38,12 @@ const guardarProdsCarrito = async (solicitud, respuesta) => {
         const carrito = await DaoCarrito.obtenerXid(carritoId);
 
         if (!carrito)
-            return respuesta.send({ error: true, mensaje: ERRORES_UTILS.MESSAGES.NO_CART });
+            return respuesta.send({ error: true, mensaje: ERRORES_UTILS.MESSAGES.ERROR_CARRITO });
 
         const producto = await DaoProducto.obtenerXid(productoId);
 
         if (!producto)
-            return respuesta.send({ error: true, mensaje: ERRORES_UTILS.MESSAGES.NO_PRODUCT });
+            return respuesta.send({ error: true, mensaje: ERRORES_UTILS.MESSAGES.ERROR_PRODUCTO });
 
         carrito.productos.push(producto);
 

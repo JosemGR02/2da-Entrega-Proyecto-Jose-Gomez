@@ -6,8 +6,8 @@ import { modeloCarrito } from "../../Modelos/index.js";
 export class carritosMongoBD extends contenedorMongoBD {
     constructor() {
         super({
-            nombre: modeloCarrito.CartCollection,
-            schema: modeloCarrito.CartSchema,
+            nombre: modeloCarrito.ColeccionCarrito,
+            schema: modeloCarrito.CarritoEsquema,
         });
     }
 
