@@ -1,10 +1,10 @@
 
 
-import { contenedorMongoBD } from "../../Contenedores/index.js";
+import { ContenedorMongoBD } from "../../Contenedores/index.js";
 import { modeloProducto } from "../../Modelos/index.js";
 
 
-export class productosMongoBD extends contenedorMongoBD {
+export class ProductosMongoBD extends ContenedorMongoBD {
     constructor() {
         super({
             nombre: modeloProducto.ColeccionProductos,

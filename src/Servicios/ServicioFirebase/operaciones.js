@@ -4,6 +4,7 @@ import { DaoProducto } from "../../Dao/index.js";
 
 
 
+
 conectar().then(baseDatos => {
     const collections = baseDatos.collection('productos')
 
@@ -15,7 +16,7 @@ conectar().then(baseDatos => {
     DaoProducto.findAll(collections).then(datos => {
         console.log(datos)
 
-        return DaoProducto.update(collections, '(id producto)', { "titulo": "ventilador" })
+        return DaoProducto.update(collections, '3AEratHZs4kjhyCVwAo0', { "titulo": "ventilador" })
     }).then(() =>
         DaoProducto.findAll(collections)
     )

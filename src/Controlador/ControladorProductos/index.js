@@ -9,13 +9,14 @@ const obtenerTodos = async (solicitud, respuesta) => {
         const producto = await DaoProducto.obtenerTodos();
 
         if (!producto) {
-            return respuesta.send({ error: ERRORES_UTILS.MESSAGES.ERROR_PRODUCTO });
+            return respuesta.send({ message: ERRORES_UTILS.MESSAGES.ERROR_PRODUCTO });
         }
-        respuesta.send(producto);
+        respuesta.send({ success: true, data: producto });
     } catch (error) {
         respuesta.send({ error, error: "Error al obtener los productos solicitados" })
     }
 };
+
 
 const obtenerXid = async (solicitud, respuesta) => {
     try {
@@ -23,7 +24,7 @@ const obtenerXid = async (solicitud, respuesta) => {
 
         const producto = await DaoProducto.obtenerXid(id);
 
-        respuesta.send(producto);
+        respuesta.send({ success: true, data: producto });
     } catch (error) {
         respuesta.send({ error, error: "Error al obtener el productos solicitado" })
     }
@@ -40,7 +41,7 @@ const crearProducto = async (solicitud, respuesta) => {
 
         const productoCreado = await DaoProducto.guardar(nuevoProducto);
 
-        respuesta.send(productoCreado);
+        respuesta.send({ success: true, data: productoCreado });
     } catch (error) {
         await LOGGER_UTILS.addLog(error);
         respuesta.send({ error, error: "Error al crear el producto solicitado" })
@@ -48,17 +49,24 @@ const crearProducto = async (solicitud, respuesta) => {
 };
 
 
+
 const eliminarXid = async (solicitud, respuesta) => {
     try {
         const { id } = solicitud.params;
 
-        await DaoProducto.eliminarXid(id);
+        const producto = await DaoProducto.eliminarXid(id);
 
-        respuesta.send({ success: true });
+        if (!producto) {
+            return respuesta.send({ message: ERRORES_UTILS.MESSAGES.ERROR_PRODUCTO });
+        }
+
+        respuesta.send({ success: true, data: producto });
     } catch (error) {
         respuesta.send({ error, error: "Error al eliminar el producto solicitado" })
     }
 };
+
+
 
 export const controladorProductos = {
     obtenerTodos,
@@ -66,3 +74,4 @@ export const controladorProductos = {
     crearProducto,
     eliminarXid,
 };
+

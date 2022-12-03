@@ -1,7 +1,7 @@
 
-export { contenedorFileSystem } from "./ContenedorFileSystem.js";
-export { contenedorMemoria } from "./ContenedorMemoria.js";
-export { contenedorFirebase } from "./ContenedorFirebase.js";
-export { contenedorMongoBD } from "./ContenedorMongoBD.js";
-export { contenedorMariaBD } from "./ContenedorMariaBD.js";
-export { contenedorSqlite } from "./ContenedorSqlite.js";
+export { ContenedorFileSystem } from "./contenedorFileSystem.js";
+export { ContenedorMemoria } from "./contenedorMemoria.js";
+export { ContenedorFirebase } from "./contenedorFirebase.js";
+export { ContenedorMongoBD } from "./contenedorMongoBD.js";
+export { ContenedorMariaBD } from "./contenedorMariaBD.js";
+export { ContenedorSqlite } from "./contenedorSqlite.js";

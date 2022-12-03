@@ -1,7 +1,7 @@
 
 import fs from "fs";
 
-class contenedorFileSystem {
+class ContenedorFileSystem {
     constructor(archivoNombre) {
         this.filePath = `./src/BaseDatos/${archivoNombre}.json`;
     }
@@ -105,5 +105,5 @@ class contenedorFileSystem {
     }
 }
 
-export { contenedorFileSystem };
+export { ContenedorFileSystem };
 

@@ -1,5 +1,5 @@
 
-class contenedorMariaBD {
+class ContenedorMariaBD {
     constructor(baseDeDatosMaria, productosBD) {
         this.knex = baseDeDatosMaria;
         this.tablaBD = productosBD;
@@ -65,4 +65,4 @@ class contenedorMariaBD {
     }
 }
 
-export { contenedorMariaBD };
+export { ContenedorMariaBD };

@@ -1,9 +1,9 @@
 
-import { contenedorSqlite } from "../../Contenedores/index.js";
+import { ContenedorSqlite } from "../../Contenedores/index.js";
 import { config } from "../../Configuracion/index.js";
 
 
-export class productoSqlite extends contenedorSqlite {
+export class ProductoSqlite extends ContenedorSqlite {
     constructor() {
         super(config.DATABASES.sqlite3);
     }

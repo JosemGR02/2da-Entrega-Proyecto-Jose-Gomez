@@ -1,8 +1,8 @@
 
 import { config } from "../Configuracion/index.js";
 import { servicioMongoDB, servicioKnex, conectar } from "../Servicios/index.js";
-import { carritosMongoBD, carritosFilesystem, carritosFirebase, carritosMemoria, carritosMariaBD, carritoSqlite } from "./Carritos/index.js";
-import { productosMongoBD, productosFileSystem, productosFirebase, productosMemoria, productosMariaBD, productoSqlite } from "./Productos/index.js";
+import { CarritosMongoBD, CarritosFilesystem, CarritosFirebase, CarritosMemoria, CarritosMariaBD, CarritoSqlite } from "./Carritos/index.js";
+import { ProductosMongoBD, ProductosFileSystem, ProductosFirebase, ProductosMemoria, ProductosMariaBD, ProductoSqlite } from "./Productos/index.js";
 
 
 const obtenerDaoSeleccionados = () => {
@@ -10,41 +10,41 @@ const obtenerDaoSeleccionados = () => {
         case "mongo": {
             servicioMongoDB.init();
             return {
-                DaoProducto: new productosMongoBD(),
-                DaoCarrito: new carritosMongoBD(),
+                DaoProducto: new ProductosMongoBD(),
+                DaoCarrito: new CarritosMongoBD(),
             };
         }
         case "filesystem": {
             return {
-                DaoProducto: new productosFileSystem(),
-                DaoCarrito: new carritosFilesystem(),
+                DaoProducto: new ProductosFileSystem(),
+                DaoCarrito: new CarritosFilesystem(),
             };
         }
         case "memory": {
             return {
-                DaoProducto: new productosMemoria(),
-                DaoCarrito: new carritosMemoria(),
+                DaoProducto: new ProductosMemoria(),
+                DaoCarrito: new CarritosMemoria(),
             };
         }
         case "firebase": {
             conectar()
             return {
-                DaoProducto: new productosFirebase(),
-                DaoCarrito: new carritosFirebase(),
+                DaoProducto: new ProductosFirebase(),
+                DaoCarrito: new CarritosFirebase(),
             };
         }
         case "mariaDB": {
             servicioKnex.init();
             return {
-                DaoProducto: new productosMariaBD(servicioKnex.KnexMariaBD, "productos"),
-                DaoCarrito: new carritosMariaBD(servicioKnex.KnexMariaBD, "carritos"),
+                DaoProducto: new ProductosMariaBD(servicioKnex.KnexMariaBD, "productos"),
+                DaoCarrito: new CarritosMariaBD(servicioKnex.KnexMariaBD, "carritos"),
             };
         }
         case "sqlite3": {
             servicioKnex.init();
             return {
-                DaoProducto: new productoSqlite(servicioKnex.KnexSqlite, "productos"),
-                DaoCarrito: new carritoSqlite(servicioKnex.KnexSqlite, "carritos"),
+                DaoProducto: new ProductoSqlite(servicioKnex.KnexSqlite, "productos"),
+                DaoCarrito: new CarritoSqlite(servicioKnex.KnexSqlite, "carritos"),
             };
         }
     }

@@ -1,6 +1,6 @@
 
 
-class contenedorSqlite {
+class ContenedorSqlite {
     constructor(baseDeDatoSqlite, productosBD) {
         this.knex = baseDeDatoSqlite;
         this.tablaBD = productosBD;
@@ -66,4 +66,4 @@ class contenedorSqlite {
     }
 }
 
-export { contenedorSqlite };
+export { ContenedorSqlite };
