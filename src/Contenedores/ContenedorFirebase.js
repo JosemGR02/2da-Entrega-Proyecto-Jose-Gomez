@@ -1,5 +1,5 @@
 
-class contenedorFirebase {
+class ContenedorFirebase {
     constructor(archivoNombre) {
         this.filePath = `./src/BaseDatos/${archivoNombre}.json`;
     }
@@ -65,7 +65,7 @@ class contenedorFirebase {
 }
 
 
-export { contenedorFirebase };
+export { ContenedorFirebase };
 
 
 

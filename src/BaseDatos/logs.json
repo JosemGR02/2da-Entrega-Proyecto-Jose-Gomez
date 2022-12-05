@@ -285,5 +285,10 @@
          "message": "products validation failed: price: Path `price` is required., thumbnail: Path `thumbnail` is required., code: Path `code` is required., description: Path `description` is required., title: Path `title` is required."
       },
       "id": 33
+   },
+   {
+      "timestamp": "04/12/2022 09:15:35",
+      "message": {},
+      "id": 34
    }
 ]

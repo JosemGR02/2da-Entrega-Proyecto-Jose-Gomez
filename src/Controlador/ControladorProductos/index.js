@@ -22,7 +22,7 @@ const obtenerXid = async (solicitud, respuesta) => {
     try {
         const { id } = solicitud.params;
 
-        const producto = await DaoProducto.obtenerXid(id);
+        const producto = await DaoProducto.obtenerXid(Number(id));
 
         respuesta.send({ success: true, data: producto });
     } catch (error) {
@@ -54,7 +54,7 @@ const eliminarXid = async (solicitud, respuesta) => {
     try {
         const { id } = solicitud.params;
 
-        const producto = await DaoProducto.eliminarXid(id);
+        const producto = await DaoProducto.eliminarXid(Number(id));
 
         if (!producto) {
             return respuesta.send({ message: ERRORES_UTILS.MESSAGES.ERROR_PRODUCTO });
